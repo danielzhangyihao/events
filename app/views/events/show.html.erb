@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @event.name %>
+</p>
+
+<p>
+  <strong>Eventdate:</strong>
+  <%= @event.eventDate %>
+</p>
+
+<p>
+  <strong>Eventtime:</strong>
+  <%= @event.eventTime %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @event.location %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @event.details %>
+</p>
+
+<p>
+  <strong>Artist:</strong>
+  <%= @event.artist %>
+</p>
+
+<p>
+  <strong>Eventurl:</strong>
+  <%= @event.eventUrl %>
+</p>
+
+<%= image_tag @event.avatar.url(:medium) %>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
