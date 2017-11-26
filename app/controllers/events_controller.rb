@@ -7,6 +7,19 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
+  def eventsJson
+    offset = params[:offset].to_i
+    @events = Event.all.order(created_at: :asc).offset(offset).limit(10)
+    totalCount = Event.all.count
+    if offset + 10 >= totalCount
+      offset = totalCount
+    else 
+      offset = offset + 10
+    end
+    result = {:offset => offset, :totalCount => totalCount, :events => @events.as_json(:methods => [:avatar_url])}
+    render :json => result
+  end
+
   # GET /events/1
   # GET /events/1.json
   def show
