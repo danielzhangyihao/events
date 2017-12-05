@@ -9,7 +9,7 @@ class EventsController < ApplicationController
 
   def eventsJson
     offset = params[:offset].to_i
-    @events = Event.where('eventdate >= ?', Date.today).order(:eventdate).offset(offset).limit(10)
+    @events = Event.all.order(:created_at).offset(offset).limit(10)
     totalCount = @events.count
     if offset >= totalCount
       offset = offset + 10
