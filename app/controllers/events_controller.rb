@@ -13,7 +13,7 @@ class EventsController < ApplicationController
     if (city == '全部')
       events = Event.where('event_date >= ?', Date.today).order(:event_date)
     else
-      events = Event.where('city = ?', city).where('event_date >= ?', Date.today).order(:event_date)
+      events = Event.where('city like ?', city).where('event_date >= ?', Date.today).order(:event_date)
     end
     totalCount = events.count
     @events = events.offset(offset).limit(10)
