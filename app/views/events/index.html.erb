@@ -20,12 +20,12 @@
     <% @events.each do |event| %>
       <tr>
         <td><%= event.name %></td>
-        <td><%= event.eventDate %></td>
-        <td><%= event.eventTime %></td>
+        <td><%= event.event_date %></td>
+        <td><%= event.event_time %></td>
         <td><%= event.location %></td>
         <td><%= event.details %></td>
         <td><%= event.artist %></td>
-        <td><%= event.eventUrl %></td>
+        <td><%= event.event_url %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>

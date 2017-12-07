@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171125074810) do
+ActiveRecord::Schema.define(version: 20171207040747) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
-    t.date "eventDate"
-    t.time "eventTime"
+    t.date "event_date"
+    t.time "event_time"
     t.string "location"
     t.text "details"
     t.string "artist"
-    t.string "eventUrl"
+    t.string "event_url"
     t.string "avatar_file_name"
     t.string "avatar_content_type"
     t.integer "avatar_file_size"

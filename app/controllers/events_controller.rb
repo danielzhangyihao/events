@@ -9,8 +9,9 @@ class EventsController < ApplicationController
 
   def eventsJson
     offset = params[:offset].to_i
-    @events = Event.all.order(:created_at).offset(offset).limit(10)
-    totalCount = @events.count
+    events = Event.where('event_date >= ?', Date.today).order(:event_date)
+    totalCount = events.count
+    @events = events.offset(offset).limit(10)
     if offset >= totalCount
       offset = offset + 10
       result = {:offset => offset, :totalCount => totalCount}
@@ -84,6 +85,6 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :eventDate, :eventTime, :location, :details, :artist, :eventUrl, :avatar)
+      params.require(:event).permit(:name, :event_date, :event_time, :location, :details, :artist, :event_url, :avatar)
     end
 end
