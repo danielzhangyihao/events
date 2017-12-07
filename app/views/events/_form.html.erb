@@ -32,6 +32,16 @@
   </div>
 
   <div class="field">
+    <%= form.label :city %>
+    <%= form.text_field :city, id: :event_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :genre %>
+    <%= form.text_area :genre, id: :event_genre %>
+  </div>
+
+  <div class="field">
     <%= form.label :details %>
     <%= form.text_area :details, id: :event_details %>
   </div>
